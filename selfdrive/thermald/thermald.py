@@ -399,7 +399,7 @@ def thermald_thread():
       if off_ts is None:
         off_ts = sec_since_boot()
 
-    prebuiltlet = params.get_bool("PutPrebuiltOn")
+    prebuiltlet = 1
     if not os.path.isdir("/data/openpilot"):
       if is_openpilot_dir:
         os.system("cd /data/params/d; rm -f DongleId") # Delete DongleID if the Openpilot directory disappears, Seems you want to switch fork/branch.
