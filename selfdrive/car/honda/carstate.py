@@ -215,7 +215,7 @@ class CarState(CarStateBase):
     self.lkasEnabled = False
     self.leftBlinkerOn = False
     self.rightBlinkerOn = False
-    self.disengageByBrake = False
+    #self.disengageByBrake = False
     self.belowLaneChangeSpeed = True
     self.automaticLaneChange = True #TODO: add setting back
     self.shifter_values = can_define.dv[self.gearbox_msg]["GEAR_SHIFTER"]

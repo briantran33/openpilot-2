@@ -212,7 +212,8 @@ void generic_rx_checks(bool stock_ecu_detected) {
   gas_pressed_prev = gas_pressed;
 
   // exit controls on rising edge of brake press
-  if (brake_pressed && (!brake_pressed_prev || vehicle_moving)) {
+/*
+    if (brake_pressed && (!brake_pressed_prev || vehicle_moving)) {
     if(controls_allowed == 1)
     {
       disengageFromBrakes = true;
@@ -224,6 +225,7 @@ void generic_rx_checks(bool stock_ecu_detected) {
     controls_allowed = 1;
   }
   brake_pressed_prev = brake_pressed;
+*/
 
   // check if stock ECU is on bus broken by car harness
   if ((safety_mode_cnt > RELAY_TRNS_TIMEOUT) && stock_ecu_detected) {

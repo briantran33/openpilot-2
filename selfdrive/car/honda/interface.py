@@ -529,8 +529,8 @@ class CarInterface(CarInterfaceBase):
     if self.CS.brake_error:
       events.add(EventName.brakeUnavailable)
     if self.CS.brake_hold and self.CS.CP.openpilotLongitudinalControl:
-      if (self.CS.lkasEnabled):
-        self.CS.disengageByBrake = True
+      #if (self.CS.lkasEnabled):
+        #self.CS.disengageByBrake = True
       if (ret.cruiseState.enabled):
         events.add(EventName.brakeHold)
       else:
@@ -541,7 +541,7 @@ class CarInterface(CarInterfaceBase):
     if self.CP.pcmCruise and ret.vEgo < self.CP.minEnableSpeed:
       events.add(EventName.belowEngageSpeed)
 
-    self.CS.disengageByBrake = self.CS.disengageByBrake or ret.disengageByBrake
+    #self.CS.disengageByBrake = self.CS.disengageByBrake or ret.disengageByBrake
 
     # it can happen that car cruise disables while comma system is enabled: need to
     # keep braking if needed or if the speed is very low
@@ -560,14 +560,14 @@ class CarInterface(CarInterfaceBase):
     enable_pressed = False
     enable_from_brake = False
 
-    if self.CS.disengageByBrake and not ret.brakePressed and not self.CS.brake_hold and self.CS.lkasEnabled:
-      self.last_enable_pressed = cur_time
-      enable_pressed = True
-      enable_from_brake = True
+    #if self.CS.disengageByBrake and not ret.brakePressed and not self.CS.brake_hold and self.CS.lkasEnabled:
+      #self.last_enable_pressed = cur_time
+      #enable_pressed = True
+      #enable_from_brake = True
 
-    if not ret.brakePressed and not self.CS.brake_hold:
-      self.CS.disengageByBrake = False
-      ret.disengageByBrake = False
+    #if not ret.brakePressed and not self.CS.brake_hold:
+      #self.CS.disengageByBrake = False
+      #ret.disengageByBrake = False
     
     # handle button presses
     for b in ret.buttonEvents:
